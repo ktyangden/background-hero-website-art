@@ -58,15 +58,9 @@ const GameModes = () => {
                 battles the most dangerous threats to humanity. Experience key
                 manga moments with stunning visuals and immersive gameplay.
               </p>
-              <a
-               href="https://youtu.be/xvFZjo5PgG0"
-               target="_blank"
-               rel="noopener noreferrer"
-
               <Button className="bg-chainsaw-orange hover:bg-chainsaw-orange/90 text-white font-bebas px-10 py-6 rounded-md text-lg">
                 START CAMPAIGN
               </Button>
-              </a>
             </div>
           </TabsContent>
 
@@ -93,15 +87,9 @@ const GameModes = () => {
                 Choose Denji, Power, Aki and more— each with unique abilities
                 and devil powers.
               </p>
-              <a
-               href="https://youtu.be/xvFZjo5PgG0"
-               target="_blank"
-               rel="noopener noreferrer"
-
               <Button className="bg-chainsaw-orange hover:bg-chainsaw-orange/90 text-white font-bebas px-10 py-6 rounded-md text-lg">
                 JOIN BATTLE
               </Button>
-              </a> 
             </div>
           </TabsContent>
         </Tabs>
