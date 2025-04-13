@@ -1,9 +1,35 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Card } from './ui/card';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from './ui/button';
 
 const CharacterSection = () => {
+  const [currentCharacter, setCurrentCharacter] = useState(0);
+  
+  const characters = [
+    {
+      id: 1,
+      name: "DENJI",
+      image: "/lovable-uploads/ecb87f0a-b61e-4c7d-94be-58427be48e3c.png",
+      description: "sombthing soiahfoinaslkfnakl slfknlknlklfasfas fas",
+    },
+    {
+      id: 2,
+      name: "POWER",
+      image: "/lovable-uploads/60779c70-f899-48f2-8266-a90d4d82a5f0.png",
+      description: "The Blood Devil who forms an unlikely friendship with Denji. Chaotic and unpredictable.",
+    }
+  ];
+  
+  const nextCharacter = () => {
+    setCurrentCharacter((prev) => (prev + 1) % characters.length);
+  };
+  
+  const prevCharacter = () => {
+    setCurrentCharacter((prev) => (prev - 1 + characters.length) % characters.length);
+  };
+
   return (
     <section id="characters" className="py-20 bg-chainsaw-orange noise-bg">
       <div className="container mx-auto px-4">
@@ -12,69 +38,85 @@ const CharacterSection = () => {
           <div className="h-1 w-20 bg-white"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <CharacterCard 
-            name="DENJI" 
-            image="/lovable-uploads/60779c70-f899-48f2-8266-a90d4d82a5f0.png"
-            description="A young man with the heart of a devil, Denji transforms into the legendary Chainsaw Man to battle devils threatening humanity."
-            traits={["STRENGTH", "ENDURANCE", "REGENERATION"]}
-          />
-          
-          <CharacterCard 
-            name="POWER" 
-            image="https://via.placeholder.com/400x500/222/fff?text=POWER"
-            description="The Blood Devil who forms an unlikely friendship with Denji. Chaotic and unpredictable, she brings both trouble and powerful abilities."
-            traits={["AGILITY", "BLOOD CONTROL", "UNPREDICTABILITY"]}
-          />
-        </div>
-        
-        <div className="mt-16 text-center">
-          <div className="inline-block p-4 border-4 border-white bg-white/10 backdrop-blur">
-            <h3 className="font-bebas text-3xl md:text-4xl text-white glitch-text" data-text="MORE CHARACTERS COMING SOON">
-              MORE CHARACTERS COMING SOON
-            </h3>
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-gray-100 relative overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              {/* Character info */}
+              <div className="p-8 md:p-12 flex flex-col justify-center">
+                <motion.h3 
+                  key={characters[currentCharacter].id + "-name"}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="font-bebas text-6xl text-gray-900 mb-6"
+                >
+                  {characters[currentCharacter].name}
+                </motion.h3>
+                
+                <motion.p
+                  key={characters[currentCharacter].id + "-desc"}  
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                  className="text-gray-600 mb-12"
+                >
+                  {characters[currentCharacter].description}
+                </motion.p>
+                
+                <div className="flex justify-center mt-auto">
+                  <div className="bg-gray-200 rounded-full flex items-center p-1">
+                    {characters.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentCharacter(index)}
+                        className={`h-2 mx-1 rounded-full transition-all ${
+                          index === currentCharacter 
+                            ? "bg-chainsaw-orange w-10" 
+                            : "bg-gray-400 w-6"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              {/* Character image */}
+              <div className="bg-chainsaw-orange relative overflow-hidden">
+                <motion.img
+                  key={characters[currentCharacter].id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                  src={characters[currentCharacter].image}
+                  alt={characters[currentCharacter].name}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+            
+            {/* Navigation buttons */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-3">
+              <Button 
+                onClick={prevCharacter} 
+                variant="ghost" 
+                size="icon" 
+                className="bg-gray-800/50 text-white hover:bg-gray-800/80 rounded-sm"
+              >
+                <ChevronLeft size={20} />
+              </Button>
+              <Button 
+                onClick={nextCharacter} 
+                variant="ghost" 
+                size="icon" 
+                className="bg-gray-800/50 text-white hover:bg-gray-800/80 rounded-sm"
+              >
+                <ChevronRight size={20} />
+              </Button>
+            </div>
           </div>
         </div>
       </div>
     </section>
-  );
-};
-
-interface CharacterCardProps {
-  name: string;
-  image: string;
-  description: string;
-  traits: string[];
-}
-
-const CharacterCard = ({ name, image, description, traits }: CharacterCardProps) => {
-  return (
-    <Card className="bg-white text-chainsaw-dark overflow-hidden group hover:shadow-lg transition-all duration-300">
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="p-6 flex flex-col justify-between">
-          <div>
-            <h3 className="font-bebas text-3xl mb-2 tracking-wide">{name}</h3>
-            <p className="text-sm opacity-80 mb-4">{description}</p>
-            
-            <div className="space-y-2">
-              {traits.map((trait, index) => (
-                <div key={index} className="bg-gray-100 px-3 py-1 text-xs font-bebas inline-block mr-2">
-                  {trait}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        
-        <div className="h-64 md:h-auto relative overflow-hidden">
-          <img 
-            src={image} 
-            alt={name} 
-            className="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-      </div>
-    </Card>
   );
 };
 

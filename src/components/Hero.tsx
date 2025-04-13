@@ -1,48 +1,44 @@
 
 import React from 'react';
 import { Button } from './ui/button';
-import { ArrowRight } from 'lucide-react';
+import { Play } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      {/* Background image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: "url('/lovable-uploads/fc493ffa-71e2-467f-893a-b4d38cd58943.png')",
-          filter: "brightness(0.8)"
-        }}
-      />
+    <div className="relative h-screen w-full overflow-hidden bg-chainsaw-orange">
+      {/* Main chainsaw character image */}
+      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 h-full">
+        <img 
+          src="/lovable-uploads/ad062e61-14b8-485c-83f1-bd5e4c4a08e9.png" 
+          alt="Chainsaw Man" 
+          className="h-full object-contain"
+        />
+      </div>
       
-      {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+      {/* Japanese vertical text */}
+      <div className="absolute right-12 top-1/2 transform -translate-y-1/2">
+        <h2 className="font-bebas text-white text-7xl writing-vertical tracking-wider">
+          チェンソーマン
+        </h2>
+      </div>
       
-      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center">
-        <div className="max-w-3xl">
-          <h1 
-            data-text="ALL DEVILS FEAR DEATH WITH A BLADE" 
-            className="glitch-text font-bebas text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-4"
-          >
-            ALL DEVILS FEAR DEATH WITH A BLADE
-          </h1>
-          
-          <div className="h-1 w-24 bg-chainsaw-orange mb-6" />
-          
-          <p className="text-lg md:text-xl text-white/80 mb-8 max-w-xl">
-            Enter the dark fantasy world where devils run rampant and one man with a chainsaw for a head fights to save humanity.
+      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-end pb-32">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl"
+        >
+          <p className="text-2xl text-white font-bebas mb-6 tracking-wide">
+            "All Devils Are Born With A name"
           </p>
           
-          <div className="flex flex-wrap gap-4">
-            <Button className="bg-chainsaw-orange hover:bg-chainsaw-orange/90 text-white px-8 py-6 rounded-none">
-              START GAME
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 rounded-none">
-              LEARN MORE
-            </Button>
-          </div>
-        </div>
+          <Button className="bg-black hover:bg-black/80 text-white px-8 py-6 rounded-md">
+            PLAY NOW
+            <Play className="ml-2 h-5 w-5" />
+          </Button>
+        </motion.div>
       </div>
     </div>
   );

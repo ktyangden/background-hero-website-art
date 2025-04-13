@@ -195,6 +195,13 @@
       clip: rect(20px, 9999px, 67px, 0);
     }
   }
+
+  /* Vertical text writing for Japanese characters */
+  .writing-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 0.1em;
+  }
 }
 
 .font-bebas {
