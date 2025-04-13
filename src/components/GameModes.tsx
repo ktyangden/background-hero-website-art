@@ -96,7 +96,7 @@ const GameModes = () => {
       </div>
 
       {/* PNG Image in the right corner */}
-      <div className="absolute top-10 right-10 z-20">
+      <div className="absolute top-10 right-0 z-20">
         <img src="\lovable-uploads\pochita.png" alt="Game Mode Icon" className="w-24 h-24 md:w-32 md:h-32 object-contain" />
       </div>
     </section>
