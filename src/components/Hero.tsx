@@ -10,7 +10,7 @@ const Hero = () => {
       {/* Main chainsaw character image */}
       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 h-full">
         <img 
-          src="/lovable-uploads/ad062e61-14b8-485c-83f1-bd5e4c4a08e9.png" 
+          src="public\lovable-uploads\denji2.png" 
           alt="Chainsaw Man" 
           className="h-full object-contain"
         />
@@ -30,9 +30,11 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <p className="text-2xl text-white font-bebas mb-6 tracking-wide">
-            "All Devils Are Born With A name"
+
+          <p className="text-2xl text-white font-orbitron mb-6 tracking-wide">
+            "All Devils Are Born With A Name"
           </p>
+
           
           <Button className="bg-black hover:bg-black/80 text-white px-8 py-6 rounded-md">
             PLAY NOW
