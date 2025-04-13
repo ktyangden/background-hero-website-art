@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,136 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins;
   }
+
+  h1, h2, h3, h4 {
+    @apply font-bebas;
+  }
+}
+
+@layer components {
+  .glitch-text {
+    position: relative;
+    display: inline-block;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch-text::before {
+    left: 2px;
+    text-shadow: -1px 0 #FF3131;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+  }
+
+  .glitch-text::after {
+    left: -2px;
+    text-shadow: -1px 0 #3D85C6;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim {
+    0% {
+      clip: rect(17px, 9999px, 94px, 0);
+    }
+    5% {
+      clip: rect(33px, 9999px, 21px, 0);
+    }
+    10% {
+      clip: rect(67px, 9999px, 90px, 0);
+    }
+    15% {
+      clip: rect(73px, 9999px, 4px, 0);
+    }
+    20% {
+      clip: rect(35px, 9999px, 4px, 0);
+    }
+    25% {
+      clip: rect(52px, 9999px, 5px, 0);
+    }
+    30% {
+      clip: rect(81px, 9999px, 91px, 0);
+    }
+    35% {
+      clip: rect(22px, 9999px, 3px, 0);
+    }
+    40% {
+      clip: rect(26px, 9999px, 67px, 0);
+    }
+    45% {
+      clip: rect(48px, 9999px, 25px, 0);
+    }
+    50% {
+      clip: rect(52px, 9999px, 56px, 0);
+    }
+    55% {
+      clip: rect(29px, 9999px, 51px, 0);
+    }
+    60% {
+      clip: rect(69px, 9999px, 29px, 0);
+    }
+    65% {
+      clip: rect(75px, 9999px, 38px, 0);
+    }
+    70% {
+      clip: rect(90px, 9999px, 93px, 0);
+    }
+    75% {
+      clip: rect(38px, 9999px, 92px, 0);
+    }
+    80% {
+      clip: rect(57px, 9999px, 34px, 0);
+    }
+    85% {
+      clip: rect(53px, 9999px, 14px, 0);
+    }
+    90% {
+      clip: rect(30px, 9999px, 82px, 0);
+    }
+    95% {
+      clip: rect(94px, 9999px, 3px, 0);
+    }
+    100% {
+      clip: rect(20px, 9999px, 67px, 0);
+    }
+  }
+}
+
+.font-bebas {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.noise-bg {
+  position: relative;
+}
+
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.noise-bg > * {
+  position: relative;
+  z-index: 2;
 }
