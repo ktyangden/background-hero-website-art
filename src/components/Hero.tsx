@@ -1,11 +1,16 @@
+
 import React from 'react';
 import { Button } from './ui/button';
 import { Play } from 'lucide-react';
 import { motion } from 'framer-motion';
+import FireParticles from './FireParticles';
 
 const Hero = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-chainsaw-orange">
+      {/* Fire particles effect */}
+      <FireParticles />
+      
       {/* Main chainsaw character image - enlarged to remove borders */}
       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 h-full">
         <img 
