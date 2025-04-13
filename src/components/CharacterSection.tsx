@@ -23,7 +23,7 @@ const CharacterSection = () => {
     {
       id: 3,
       name: "AKI",
-      image: "/lovable-uploads/AKI.png",
+      image: "/lovable-uploads/AKI.jpg",
       description:
         "The Blood Devil who forms an unlikely friendship with Denji. Chaotic and unpredictable.",
     },
