@@ -10,20 +10,20 @@ const CharacterSection = () => {
     {
       id: 1,
       name: "DENJI",
-      image: "/lovable-uploads/ecb87f0a-b61e-4c7d-94be-58427be48e3c.png",
+      image: "/lovable-uploads/denji_cahracter.jpg",
       description: "sombthing soiahfoinaslkfnakl slfknlknlklfasfas fas",
     },
     {
       id: 2,
       name: "POWER",
-      image: "/lovable-uploads/60779c70-f899-48f2-8266-a90d4d82a5f0.png",
+      image: "/lovable-uploads/POWER.png",
       description:
         "The Blood Devil who forms an unlikely friendship with Denji. Chaotic and unpredictable.",
     },
     {
       id: 3,
       name: "AKI",
-      image: "/lovable-uploads/60779c70-f899-48f2-8266-a90d4d82a5f0.png",
+      image: "/lovable-uploads/AKI.png",
       description:
         "The Blood Devil who forms an unlikely friendship with Denji. Chaotic and unpredictable.",
     },
