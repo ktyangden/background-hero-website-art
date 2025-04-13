@@ -11,49 +11,43 @@ const CharacterSection = () => {
       id: 1,
       name: "DENJI",
       image: "/lovable-uploads/denji_cahracter.jpg",
-      description: "sombthing soiahfoinaslkfnakl slfknlknlklfasfas fas",
+      description: "Chainsaw-wielding hybrid devil hunter. Brash, hungry, and deadly.",
     },
     {
       id: 2,
       name: "POWER",
       image: "/lovable-uploads/POWER.png",
-      description:
-        "The Blood Devil who forms an unlikely friendship with Denji. Chaotic and unpredictable.",
+      description: "Blood Devil. Chaotic, loud, and fiercely loyal in her own twisted way.",
     },
     {
       id: 3,
       name: "AKI",
       image: "/lovable-uploads/AKI.jpg",
-      description:
-        "The Blood Devil who forms an unlikely friendship with Denji. Chaotic and unpredictable.",
+      description: "Calm and driven Public Safety Devil Hunter, with a contract with the Fox Devil.",
     },
     {
       id: 4,
       name: "HIMENO",
       image: "/lovable-uploads/HIMENO.png",
-      description:
-        "The Blood Devil who forms an unlikely friendship with Denji. Chaotic and unpredictable.",
+      description: "Ghost Devil user. Mysterious, emotional, and deadly.",
     },
     {
       id: 5,
       name: "REZE",
       image: "/lovable-uploads/REZE.png",
-      description:
-        "The Blood Devil who forms an unlikely friendship with Denji. Chaotic and unpredictable.",
+      description: "Bomb Devil hybrid. Sweet exterior hides explosive power.",
     },
     {
       id: 6,
       name: "MAKIMA",
       image: "/lovable-uploads/MAKIMA.png",
-      description:
-        "The Blood Devil who forms an unlikely friendship with Denji. Chaotic and unpredictable.",
+      description: "Control Devil. Calm, composed, and terrifyingly manipulative.",
     },
     {
       id: 7,
       name: "YORU",
       image: "/lovable-uploads/YORU.png",
-      description:
-        "The Blood Devil who forms an unlikely friendship with Denji. Chaotic and unpredictable.",
+      description: "War Devil. Cold and calculating with a mission to dominate.",
     },
   ];
 
@@ -62,9 +56,7 @@ const CharacterSection = () => {
   };
 
   const prevCharacter = () => {
-    setCurrentCharacter(
-      (prev) => (prev - 1 + characters.length) % characters.length
-    );
+    setCurrentCharacter((prev) => (prev - 1 + characters.length) % characters.length);
   };
 
   return (
@@ -78,16 +70,16 @@ const CharacterSection = () => {
         </div>
 
         <div className="max-w-5xl mx-auto">
-          <div className="bg-gray-100 relative overflow-hidden">
+          <div className="bg-zinc-900 relative overflow-hidden rounded-md shadow-md">
             <div className="grid grid-cols-1 md:grid-cols-2">
               {/* Character info */}
-              <div className="p-8 md:p-12 flex flex-col justify-center">
+              <div className="p-8 md:p-12 flex flex-col justify-center text-white">
                 <motion.h3
                   key={characters[currentCharacter].id + "-name"}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="font-bebas text-6xl text-gray-900 mb-6"
+                  className="font-bebas text-6xl text-orange-400 drop-shadow-md mb-6"
                 >
                   {characters[currentCharacter].name}
                 </motion.h3>
@@ -97,30 +89,14 @@ const CharacterSection = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.4, delay: 0.2 }}
-                  className="text-gray-600 mb-12"
+                  className="text-white/80 text-lg font-orbitron"
                 >
                   {characters[currentCharacter].description}
                 </motion.p>
-
-                <div className="flex justify-center mt-auto">
-                  <div className="bg-gray-200 rounded-full flex items-center p-1">
-                    {characters.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentCharacter(index)}
-                        className={`h-2 mx-1 rounded-full transition-all ${
-                          index === currentCharacter
-                            ? "bg-chainsaw-orange w-10"
-                            : "bg-gray-400 w-6"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
               </div>
 
               {/* Character image */}
-              <div className="bg-chainsaw-orange relative overflow-hidden">
+              <div className="bg-zinc-800 relative overflow-hidden">
                 <motion.img
                   key={characters[currentCharacter].id}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -128,7 +104,7 @@ const CharacterSection = () => {
                   transition={{ duration: 0.5 }}
                   src={characters[currentCharacter].image}
                   alt={characters[currentCharacter].name}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
@@ -152,6 +128,27 @@ const CharacterSection = () => {
                 <ChevronRight size={20} />
               </Button>
             </div>
+          </div>
+
+          {/* 💫 Sleek Thumbnail Nav Bar */}
+          <div className="mt-6 bg-zinc-950/90 p-3 rounded-xl overflow-x-auto no-scrollbar flex gap-3 justify-center items-center">
+            {characters.map((char, index) => (
+              <button
+                key={char.id}
+                onClick={() => setCurrentCharacter(index)}
+                className={`flex-shrink-0 w-20 h-20 rounded-full overflow-hidden border-4 transition-all duration-300
+                ${index === currentCharacter
+                  ? "border-orange-500 shadow-[0_0_12px_4px_rgba(255,115,0,0.8)]"
+                  : "border-zinc-700 hover:border-orange-400 hover:shadow-md"
+                }`}
+              >
+                <img
+                  src={char.image}
+                  alt={char.name}
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            ))}
           </div>
         </div>
       </div>
