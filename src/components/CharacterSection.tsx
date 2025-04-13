@@ -10,20 +10,23 @@ const CharacterSection = () => {
     {
       id: 1,
       name: "DENJI",
-      image: "/lovable-uploads/denji_cahracter.jpg",
-      description: "Chainsaw-wielding hybrid devil hunter. Brash, hungry, and deadly.",
+      image: "/lovable-uploads/denji.jpg",
+      description:
+        "Chainsaw-wielding hybrid devil hunter. Brash, hungry, and deadly.",
     },
     {
       id: 2,
       name: "POWER",
       image: "/lovable-uploads/POWER.png",
-      description: "Blood Devil. Chaotic, loud, and fiercely loyal in her own twisted way.",
+      description:
+        "Blood Devil. Chaotic, loud, and fiercely loyal in her own twisted way.",
     },
     {
       id: 3,
       name: "AKI",
       image: "/lovable-uploads/AKI.jpg",
-      description: "Calm and driven Public Safety Devil Hunter, with a contract with the Fox Devil.",
+      description:
+        "Calm and driven Public Safety Devil Hunter, with a contract with the Fox Devil.",
     },
     {
       id: 4,
@@ -41,13 +44,15 @@ const CharacterSection = () => {
       id: 6,
       name: "MAKIMA",
       image: "/lovable-uploads/MAKIMA.png",
-      description: "Control Devil. Calm, composed, and terrifyingly manipulative.",
+      description:
+        "Control Devil. Calm, composed, and terrifyingly manipulative.",
     },
     {
       id: 7,
       name: "YORU",
       image: "/lovable-uploads/YORU.png",
-      description: "War Devil. Cold and calculating with a mission to dominate.",
+      description:
+        "War Devil. Cold and calculating with a mission to dominate.",
     },
   ];
 
@@ -56,11 +61,16 @@ const CharacterSection = () => {
   };
 
   const prevCharacter = () => {
-    setCurrentCharacter((prev) => (prev - 1 + characters.length) % characters.length);
+    setCurrentCharacter(
+      (prev) => (prev - 1 + characters.length) % characters.length
+    );
   };
 
   return (
-    <section id="characters" className="py-20 bg-chainsaw-orange noise-bg font-orbitron">
+    <section
+      id="characters"
+      className="py-20 bg-chainsaw-orange noise-bg font-orbitron"
+    >
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center mb-12">
           <h2 className="text-5xl md:text-6xl text-white mb-4 tracking-wider font-orbitron font-bold">
@@ -137,9 +147,10 @@ const CharacterSection = () => {
                 key={char.id}
                 onClick={() => setCurrentCharacter(index)}
                 className={`flex-shrink-0 w-20 h-20 rounded-full overflow-hidden border-4 transition-all duration-300
-                ${index === currentCharacter
-                  ? "border-orange-500 shadow-[0_0_12px_4px_rgba(255,115,0,0.8)]"
-                  : "border-zinc-700 hover:border-orange-400 hover:shadow-md"
+                ${
+                  index === currentCharacter
+                    ? "border-orange-500 shadow-[0_0_12px_4px_rgba(255,115,0,0.8)]"
+                    : "border-zinc-700 hover:border-orange-400 hover:shadow-md"
                 }`}
               >
                 <img
