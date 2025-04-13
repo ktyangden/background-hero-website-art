@@ -1,6 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron+Neue&family=Poppins:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jomolhari&family=Jost:ital,wght@0,100..900;1,100..900&family=Kaisei+Decol&family=Teko:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Ranga&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -92,11 +90,11 @@
   }
 
   body {
-    @apply bg-background text-foreground font-poppins;
+    @apply bg-background text-foreground font-orbitron;
   }
 
   h1, h2, h3, h4 {
-    @apply font-bebas;
+    @apply font-ranga;
   }
 }
 
@@ -131,85 +129,66 @@
   }
 
   @keyframes glitch-anim {
-    0% {
-      clip: rect(17px, 9999px, 94px, 0);
-    }
-    5% {
-      clip: rect(33px, 9999px, 21px, 0);
-    }
-    10% {
-      clip: rect(67px, 9999px, 90px, 0);
-    }
-    15% {
-      clip: rect(73px, 9999px, 4px, 0);
-    }
-    20% {
-      clip: rect(35px, 9999px, 4px, 0);
-    }
-    25% {
-      clip: rect(52px, 9999px, 5px, 0);
-    }
-    30% {
-      clip: rect(81px, 9999px, 91px, 0);
-    }
-    35% {
-      clip: rect(22px, 9999px, 3px, 0);
-    }
-    40% {
-      clip: rect(26px, 9999px, 67px, 0);
-    }
-    45% {
-      clip: rect(48px, 9999px, 25px, 0);
-    }
-    50% {
-      clip: rect(52px, 9999px, 56px, 0);
-    }
-    55% {
-      clip: rect(29px, 9999px, 51px, 0);
-    }
-    60% {
-      clip: rect(69px, 9999px, 29px, 0);
-    }
-    65% {
-      clip: rect(75px, 9999px, 38px, 0);
-    }
-    70% {
-      clip: rect(90px, 9999px, 93px, 0);
-    }
-    75% {
-      clip: rect(38px, 9999px, 92px, 0);
-    }
-    80% {
-      clip: rect(57px, 9999px, 34px, 0);
-    }
-    85% {
-      clip: rect(53px, 9999px, 14px, 0);
-    }
-    90% {
-      clip: rect(30px, 9999px, 82px, 0);
-    }
-    95% {
-      clip: rect(94px, 9999px, 3px, 0);
-    }
-    100% {
-      clip: rect(20px, 9999px, 67px, 0);
-    }
+    0% { clip: rect(17px, 9999px, 94px, 0); }
+    100% { clip: rect(20px, 9999px, 67px, 0); }
   }
 
-  /* Vertical text writing for Japanese characters */
   .writing-vertical {
     writing-mode: vertical-rl;
     text-orientation: upright;
     letter-spacing: 0.1em;
   }
+
+  .hero-heading {
+    font-size: 4rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: #fff;
+    text-shadow: 2px 2px 0 #FF3131, -2px -2px 0 #3D85C6;
+    @apply glitch-text;
+  }
+
+  .game-mode-toggle {
+    @apply px-4 py-2 rounded-full bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 ease-in-out;
+  }
+
+  .scroll-carousel {
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    display: flex;
+    gap: 1rem;
+    scroll-behavior: smooth;
+  }
+
+  .scroll-carousel > * {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
-.font-bebas {
-  font-family: 'Bebas Neue', sans-serif;
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
 }
 
-.font-poppins {
-  font-family: 'Poppins', sans-serif;
+.font-ranga {
+  font-family: 'Ranga', cursive;
 }
 
 .noise-bg {

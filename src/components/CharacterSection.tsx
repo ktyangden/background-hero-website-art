@@ -60,10 +60,10 @@ const CharacterSection = () => {
   };
 
   return (
-    <section id="characters" className="py-20 bg-chainsaw-orange noise-bg">
+    <section id="characters" className="py-20 bg-chainsaw-orange noise-bg font-orbitron">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center mb-12">
-          <h2 className="font-bebas text-5xl md:text-6xl text-white mb-4 tracking-wider">
+          <h2 className="text-5xl md:text-6xl text-white mb-4 tracking-wider font-orbitron font-bold">
             CHARACTERS
           </h2>
           <div className="h-1 w-20 bg-white"></div>
@@ -79,7 +79,7 @@ const CharacterSection = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="font-bebas text-6xl text-orange-400 drop-shadow-md mb-6"
+                  className="text-6xl text-orange-400 drop-shadow-md mb-6 font-orbitron font-bold not-italic"
                 >
                   {characters[currentCharacter].name}
                 </motion.h3>
@@ -89,7 +89,7 @@ const CharacterSection = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.4, delay: 0.2 }}
-                  className="text-white/80 text-lg font-orbitron"
+                  className="text-white/80 text-lg"
                 >
                   {characters[currentCharacter].description}
                 </motion.p>
