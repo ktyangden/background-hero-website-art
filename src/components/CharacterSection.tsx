@@ -43,7 +43,7 @@ const CharacterSection = () => {
     {
       id: 6,
       name: "MAKIMA",
-      image: "/lovable-uploads/MAKIMA.png",
+      image: "/lovable-uploads/makima.jpg",
       description:
         "Control Devil. Calm, composed, and terrifyingly manipulative.",
     },
@@ -114,7 +114,7 @@ const CharacterSection = () => {
                   transition={{ duration: 0.5 }}
                   src={characters[currentCharacter].image}
                   alt={characters[currentCharacter].name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-[400px] object-cover"
                 />
               </div>
             </div>

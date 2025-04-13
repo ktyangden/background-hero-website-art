@@ -4,7 +4,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 const GameModes = () => {
   return (
-    <section id="modes" className="py-20 bg-chainsaw-dark noise-bg">
+    <section
+      id="modes"
+      className="py-20 bg-black relative noise-bg"
+    >
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="flex flex-col items-center mb-12">
@@ -90,6 +93,11 @@ const GameModes = () => {
             </div>
           </TabsContent>
         </Tabs>
+      </div>
+
+      {/* PNG Image in the right corner */}
+      <div className="absolute top-10 right-10 z-20">
+        <img src="\lovable-uploads\pochita.png" alt="Game Mode Icon" className="w-24 h-24 md:w-32 md:h-32 object-contain" />
       </div>
     </section>
   );

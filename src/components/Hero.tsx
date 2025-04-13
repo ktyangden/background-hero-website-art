@@ -1,18 +1,28 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import { Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 import FireParticles from './FireParticles';
 
 const Hero = () => {
+  const [isGlitching, setIsGlitching] = useState(false);
+
+  useEffect(() => {
+    const glitchInterval = setInterval(() => {
+      setIsGlitching(true);
+      setTimeout(() => setIsGlitching(false), 200); // Glitch lasts 200ms
+    }, 1000); // Random glitch every 1 second (adjust frequency here)
+
+    return () => clearInterval(glitchInterval); // Cleanup on component unmount
+  }, []);
+
   return (
     <div className="relative h-screen w-full overflow-hidden bg-chainsaw-orange">
       {/* Fire particles effect */}
       <FireParticles />
-      
-      {/* Main chainsaw character image - enlarged to remove borders */}
-      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 h-full">
+
+          {/* Main chainsaw character image - enlarged to remove borders */}
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 h-full">
         <img 
           src="\lovable-uploads\denji2.png" 
           alt="Chainsaw Man" 
@@ -20,9 +30,10 @@ const Hero = () => {
         />
       </div>
 
-      {/* Japanese vertical text */}
+      
+      {/* Japanese vertical text with glitch effect */}
       <div className="absolute right-12 top-1/2 transform -translate-y-1/2">
-        <h2 className="font-rangdi text-white text-7xl writing-vertical tracking-wider">
+        <h2 className={`font-rangdi text-white text-7xl writing-vertical tracking-wider font-bold ${isGlitching ? 'glitch' : ''}`}>
           チェンソーマン
         </h2>
       </div>
