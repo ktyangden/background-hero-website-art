@@ -30,7 +30,7 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <p className="text-2xl text-white font-orbitron mb-6 tracking-wide">
+          <p className="text-4xl text-white font-orbitron mb-6 tracking-wide">
             "All Devils Are Born With A Name"
           </p>
 
