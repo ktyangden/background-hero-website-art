@@ -36,7 +36,7 @@ const GameModes = () => {
                 Experience key moments from the manga with stunning visuals and immersive gameplay.
               </p>
               <img 
-                  src="public\lovable-uploads\story.jpg" 
+                  src="\lovable-uploads\story.jpg" 
                   alt="story" 
                   className="h-full object-contain"
                 />
@@ -54,7 +54,7 @@ const GameModes = () => {
                 including Denji, Power, Aki, and more. Each with unique abilities and fighting styles.
               </p>
                 <img 
-                  src="public\lovable-uploads\fight.png" 
+                  src="\lovable-uploads\fight.png" 
                   alt="Fight" 
                   className="h-full object-contain"
                 />

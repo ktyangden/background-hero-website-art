@@ -10,7 +10,7 @@ const Hero = () => {
       {/* Main chainsaw character image */}
       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 h-full">
         <img 
-          src="public\lovable-uploads\denji2.png" 
+          src="\lovable-uploads\denji2.png" 
           alt="Chainsaw Man" 
           className="h-full object-contain"
         />
