@@ -8,9 +8,15 @@ const Hero = () => {
     <div className="relative h-screen w-full overflow-hidden bg-chainsaw-orange">
       {/* Main chainsaw character image */}
       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 h-full">
+<<<<<<< HEAD
         <img
           src="public\lovable-uploads\denji2.png"
           alt="Chainsaw Man"
+=======
+        <img 
+          src="\lovable-uploads\denji2.png" 
+          alt="Chainsaw Man" 
+>>>>>>> 16d452eb9498bdbc88704efc14ccb7ccb7d8ba3e
           className="h-full object-contain"
         />
       </div>
