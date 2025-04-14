@@ -64,11 +64,11 @@ const PlotSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col items-center mb-16">
-          <h2 className="text-6xl md:text-7xl text-white mb-6 tracking-wider font-orbitron font-bold">
+        <div className="flex flex-col items-center mb-8 sm:mb-16">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl text-white mb-4 sm:mb-6 tracking-wider font-orbitron font-bold">
             STORY TIMELINE
           </h2>
-          <div className="h-1 w-32 bg-chainsaw-orange"></div>
+          <div className="h-1 w-20 sm:w-32 bg-chainsaw-orange"></div>
         </div>
 
         {/* Timeline container */}
@@ -79,9 +79,9 @@ const PlotSection = () => {
               onClick={scrollLeft}
               variant="ghost"
               size="icon"
-              className="w-12 h-12 bg-gray-900/50 text-white hover:bg-chainsaw-orange/80 rounded-full"
+              className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-900/50 text-white hover:bg-chainsaw-orange/80 rounded-full"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
             </Button>
           </div>
           <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20">
@@ -89,34 +89,34 @@ const PlotSection = () => {
               onClick={scrollRight}
               variant="ghost"
               size="icon"
-              className="w-12 h-12 bg-gray-900/50 text-white hover:bg-chainsaw-orange/80 rounded-full"
+              className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-900/50 text-white hover:bg-chainsaw-orange/80 rounded-full"
             >
-              <ChevronRight size={24} />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </Button>
           </div>
 
           {/* Timeline events */}
           <div 
             ref={timelineRef}
-            className="relative h-[500px] overflow-x-auto scrollbar-hide"
+            className="relative h-[400px] sm:h-[500px] overflow-x-auto scrollbar-hide"
           >
-            <div className="flex items-center h-full min-w-max px-16">
+            <div className="flex items-center h-full min-w-max px-8 sm:px-16">
               {events.map((event, index) => (
                 <motion.div
                   key={event.id}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex flex-col items-center mx-8 w-[300px]"
+                  className="flex flex-col items-center mx-4 sm:mx-8 w-[250px] sm:w-[300px]"
                 >
                   {/* Event content */}
                   <div className="w-full mb-4">
-                    <div className="bg-gray-900/50 p-6 rounded-lg">
-                      <h3 className="text-2xl text-chainsaw-orange font-orbitron mb-2">
+                    <div className="bg-gray-900/50 p-4 sm:p-6 rounded-lg">
+                      <h3 className="text-xl sm:text-2xl text-chainsaw-orange font-orbitron mb-2">
                         {event.title}
                       </h3>
-                      <p className="text-white/80 mb-4">{event.description}</p>
-                      <span className="text-chainsaw-orange/80">{event.date}</span>
+                      <p className="text-white/80 text-sm sm:text-base mb-4">{event.description}</p>
+                      <span className="text-chainsaw-orange/80 text-sm sm:text-base">{event.date}</span>
                     </div>
                   </div>
 

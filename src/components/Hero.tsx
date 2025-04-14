@@ -84,8 +84,8 @@ const Hero = () => {
       </div>
 
       {/* Japanese vertical text with glitch effect */}
-      <div className="absolute right-12 top-1/2 transform -translate-y-1/2">
-        <h2 className={`font-rangdi text-white text-7xl writing-vertical tracking-wider font-bold ${isGlitching ? 'glitch' : ''}`}>
+      <div className="absolute right-2 sm:right-4 md:right-12 top-1/2 transform -translate-y-1/2">
+        <h2 className={`font-rangdi text-white text-3xl sm:text-4xl md:text-7xl writing-vertical tracking-wider font-bold ${isGlitching ? 'glitch' : ''} whitespace-nowrap`}>
           チェンソーマン
         </h2>
       </div>

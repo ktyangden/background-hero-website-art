@@ -25,32 +25,32 @@ const Videos = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="flex flex-col items-center mb-12">
-          <h2 className="text-2xl text-white font-orbitron mb-6 tracking-wide">
+        <div className="flex flex-col items-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl text-white mb-4 sm:mb-6 tracking-wide font-orbitron">
             VIDEOS
           </h2>
-          <div className="h-1 w-20 bg-chainsaw-orange"></div>
+          <div className="h-1 w-16 sm:w-20 bg-chainsaw-orange"></div>
         </div>
 
         {/* Tabs */}
         <Tabs defaultValue="teaser" className="w-full max-w-5xl mx-auto">
           {/* Tab Triggers */}
-          <TabsList className="w-full grid grid-cols-3 mb-8 bg-transparent h-auto gap-4">
+          <TabsList className="w-full grid grid-cols-3 mb-6 sm:mb-8 bg-transparent h-auto gap-2 sm:gap-4">
             <TabsTrigger
               value="teaser"
-              className="data-[state=active]:bg-chainsaw-orange data-[state=active]:text-white bg-transparent text-white/70 font-bebas text-xl py-4 border border-chainsaw-orange/50"
+              className="data-[state=active]:bg-chainsaw-orange data-[state=active]:text-white bg-transparent text-white/70 font-bebas text-base sm:text-xl py-3 sm:py-4 border border-chainsaw-orange/50"
             >
               TEASER
             </TabsTrigger>
             <TabsTrigger
               value="trailer"
-              className="data-[state=active]:bg-chainsaw-orange data-[state=active]:text-white bg-transparent text-white/70 font-bebas text-xl py-4 border border-chainsaw-orange/50"
+              className="data-[state=active]:bg-chainsaw-orange data-[state=active]:text-white bg-transparent text-white/70 font-bebas text-base sm:text-xl py-3 sm:py-4 border border-chainsaw-orange/50"
             >
               TRAILER
             </TabsTrigger>
             <TabsTrigger
               value="music"
-              className="data-[state=active]:bg-chainsaw-orange data-[state=active]:text-white bg-transparent text-white/70 font-bebas text-xl py-4 border border-chainsaw-orange/50"
+              className="data-[state=active]:bg-chainsaw-orange data-[state=active]:text-white bg-transparent text-white/70 font-bebas text-base sm:text-xl py-3 sm:py-4 border border-chainsaw-orange/50"
             >
               MUSIC VIDEOS
             </TabsTrigger>
@@ -59,7 +59,7 @@ const Videos = () => {
           {/* TEASER */}
           <TabsContent
             value="teaser"
-            className="relative h-[500px] md:h-[600px] overflow-hidden rounded-md shadow-lg"
+            className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-md shadow-lg"
           >
             <iframe
               className="absolute inset-0 w-full h-full object-cover z-0"
@@ -74,7 +74,7 @@ const Videos = () => {
           {/* TRAILER */}
           <TabsContent
             value="trailer"
-            className="relative h-[500px] md:h-[600px] overflow-hidden rounded-md shadow-lg"
+            className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-md shadow-lg"
           >
             <iframe
               className="absolute inset-0 w-full h-full object-cover z-0"
@@ -89,7 +89,7 @@ const Videos = () => {
           {/* MUSIC VIDEOS */}
           <TabsContent
             value="music"
-            className="relative h-[500px] md:h-[600px] overflow-hidden rounded-md shadow-lg"
+            className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-md shadow-lg"
           >
             <iframe
               className="absolute inset-0 w-full h-full object-cover z-0"
