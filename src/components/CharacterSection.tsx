@@ -145,14 +145,14 @@ const CharacterSection = () => {
 
           {/* Thumbnail Navigation */}
           <div className="mt-16">
-            <div className="flex justify-center gap-4 overflow-x-auto no-scrollbar">
+            <div className="flex justify-center gap-4 overflow-x-auto scrollbar-hide px-4 thumbnail-container">
               {characters.map((char, index) => (
                 <motion.button
                   key={char.id}
                   onClick={() => setCurrentCharacter(index)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden border-2 transition-all duration-300
+                  className={`flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden border-2 transition-all duration-300 relative transform-gpu bg-black
                   ${
                     index === currentCharacter
                       ? "border-chainsaw-orange shadow-[0_0_20px_5px_rgba(255,115,0,0.5)]"
