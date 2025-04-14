@@ -108,7 +108,7 @@ const Hero = () => {
             rel="noopener noreferrer"
           >
             <Button className="bg-black hover:bg-black/80 text-white px-8 py-6 rounded-md font-orbitron">
-              PLAY NOW
+              WATCH NOW
               <Play className="ml-2 h-5 w-5" />
             </Button>
           </a>
