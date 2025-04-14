@@ -17,6 +17,18 @@ const Hero = () => {
     return () => clearInterval(glitchInterval); // Cleanup on component unmount
   }, []);
 
+  // Generate scratches specifically for the image overlay
+  const imageScratches = Array.from({ length: 20 }).map((_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    rotation: Math.random() * 20 - 10,
+    width: Math.random() * 1.5 + 0.5,
+    height: Math.random() * 30 + 20,
+    opacity: Math.random() * 0.15 + 0.05,
+    color: Math.random() > 0.8 ? 'bg-gray-800' : 'bg-black',
+  }));
+
   return (
     <div className="relative h-screen w-full overflow-hidden bg-chainsaw-orange">
       {/* Fire particles effect */}
@@ -26,24 +38,50 @@ const Hero = () => {
       <ScratchEffect />
 
       {/* Main chainsaw character image - enlarged to remove borders */}
-      <motion.div 
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 h-full"
-        whileHover={{ rotateY: 5 }}
-        transition={{ duration: 0.3 }}
-      >
-        <motion.img 
-          src="\lovable-uploads\denji2.png" 
-          alt="Chainsaw Man" 
-          className="h-full object-cover scale-125"
-          initial={{ y: 0 }}
-          animate={{ y: [0, -10, 0] }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-      </motion.div>
+      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 h-full">
+        <motion.div 
+          className="h-full relative"
+          whileHover={{ rotateY: 5 }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.img 
+            src="\lovable-uploads\denji2.png" 
+            alt="Chainsaw Man" 
+            className="h-full object-cover scale-125"
+            initial={{ y: 0 }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          {/* Image overlay scratches */}
+          <div className="absolute inset-0 pointer-events-none">
+            {imageScratches.map((scratch) => (
+              <motion.div
+                key={scratch.id}
+                className={`absolute ${scratch.color}`}
+                style={{
+                  left: `${scratch.x}%`,
+                  top: `${scratch.y}%`,
+                  transform: `rotate(${scratch.rotation}deg)`,
+                  transformOrigin: 'center',
+                  width: `${scratch.width}px`,
+                  height: `${scratch.height}px`,
+                  opacity: scratch.opacity,
+                }}
+                whileHover={{ 
+                  rotateY: 3,
+                  scale: 1.05,
+                  opacity: scratch.opacity + 0.1
+                }}
+                transition={{ duration: 0.5 }}
+              />
+            ))}
+          </div>
+        </motion.div>
+      </div>
 
       {/* Japanese vertical text with glitch effect */}
       <div className="absolute right-12 top-1/2 transform -translate-y-1/2">
