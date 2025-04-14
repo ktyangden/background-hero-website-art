@@ -12,6 +12,64 @@
   font-display: swap;
 }
 
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Main page scrollbar */
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #000000;
+  border-radius: 0;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #FF4D00;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #ff6b33;
+}
+
+html::-webkit-scrollbar-button {
+  background: #FF4D00;
+  height: 12px;
+}
+
+/* Other scrollbars */
+::-webkit-scrollbar-track {
+  background: rgba(17, 24, 39, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF4D00;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6b33;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FF4D00 rgba(17, 24, 39, 0.5);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #FF4D00 #000000;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

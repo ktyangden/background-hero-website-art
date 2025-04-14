@@ -18,13 +18,13 @@ const PlotSection = () => {
       title: "Power's Introduction",
       description: "The Blood Devil joins Denji's life.",
       date: "Chapter 5",
-      image: "/images/power.png",
+      image: "/images/POWER.png",
     },
     {
       title: "Aki's Training",
       description: "Denji begins training under Aki.",
       date: "Chapter 8",
-      image: "/images/aki.jpg",
+      image: "/images/AKI.jpg",
     },
     {
       title: "Makima's Plan",
@@ -98,7 +98,7 @@ const PlotSection = () => {
           {/* Timeline events */}
           <div 
             ref={timelineRef}
-            className="relative h-[400px] sm:h-[500px] overflow-x-auto scrollbar-hide"
+            className="relative h-[400px] sm:h-[500px] overflow-x-auto scrollbar-thin scrollbar-thumb-chainsaw-orange scrollbar-track-gray-900/50"
           >
             <div className="flex items-center h-full min-w-max px-8 sm:px-16">
               {events.map((event, index) => (
