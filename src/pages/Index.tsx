@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Hero from '../components/Hero';
-import GameModes from '../components/GameModes';
+import Videos from '@/components/Videos';
 import CharacterSection from '../components/CharacterSection';
 import Footer from '../components/Footer';
 import PlotSection from '../components/PlotSection';
@@ -11,7 +11,7 @@ const Index = () => {
     <div className="min-h-screen bg-black">
       <Hero />
       <CharacterSection />
-      <GameModes />
+      <Videos />
       <PlotSection />
       <Footer />
     </div>
