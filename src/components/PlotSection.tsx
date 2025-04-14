@@ -7,35 +7,31 @@ const PlotSection = () => {
   const [selectedEvent, setSelectedEvent] = useState<number | null>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
 
-  const timelineEvents = [
+  const events = [
     {
-      id: 1,
-      title: "The Beginning",
-      image: "/lovable-uploads/denji.jpg",
-      description: "Denji, a young man burdened with debt, works as a devil hunter to pay off his father's debt to the yakuza. He lives with his pet devil Pochita.",
-      date: "Chapter 1"
+      title: "Denji's Contract",
+      description: "Denji merges with Pochita to become Chainsaw Man.",
+      date: "Chapter 1",
+      image: "/images/denji.jpg",
     },
     {
-      id: 2,
-      title: "The Contract",
-      image: "/lovable-uploads/POWER.png",
-      description: "After being betrayed and killed, Denji makes a contract with Pochita, becoming the Chainsaw Man. He joins Public Safety to hunt devils.",
-      date: "Chapter 2"
+      title: "Power's Introduction",
+      description: "The Blood Devil joins Denji's life.",
+      date: "Chapter 5",
+      image: "/images/power.png",
     },
     {
-      id: 3,
-      title: "New Allies",
-      image: "/lovable-uploads/AKI.jpg",
-      description: "Denji meets Aki Hayakawa and Power, forming an unlikely team. They face various devil threats together.",
-      date: "Chapter 3"
+      title: "Aki's Training",
+      description: "Denji begins training under Aki.",
+      date: "Chapter 8",
+      image: "/images/aki.jpg",
     },
     {
-      id: 4,
-      title: "The Control Devil",
-      image: "/lovable-uploads/makima.jpg",
-      description: "Makima reveals her true nature as the Control Devil, setting up the final confrontation.",
-      date: "Chapter 4"
-    }
+      title: "Makima's Plan",
+      description: "The Control Devil's true intentions are revealed.",
+      date: "Chapter 52",
+      image: "/images/makima.jpg",
+    },
   ];
 
   const scrollLeft = () => {
@@ -105,7 +101,7 @@ const PlotSection = () => {
             className="relative h-[500px] overflow-x-auto scrollbar-hide"
           >
             <div className="flex items-center h-full min-w-max px-16">
-              {timelineEvents.map((event, index) => (
+              {events.map((event, index) => (
                 <motion.div
                   key={event.id}
                   initial={{ opacity: 0, x: 20 }}
@@ -183,20 +179,20 @@ const PlotSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                   <div className="relative aspect-square">
                     <img
-                      src={timelineEvents.find(e => e.id === selectedEvent)?.image}
-                      alt={timelineEvents.find(e => e.id === selectedEvent)?.title}
+                      src={events.find(e => e.id === selectedEvent)?.image}
+                      alt={events.find(e => e.id === selectedEvent)?.title}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="p-8 flex flex-col justify-center">
                     <h3 className="text-3xl text-chainsaw-orange font-orbitron mb-4">
-                      {timelineEvents.find(e => e.id === selectedEvent)?.title}
+                      {events.find(e => e.id === selectedEvent)?.title}
                     </h3>
                     <p className="text-white/90 text-lg mb-4">
-                      {timelineEvents.find(e => e.id === selectedEvent)?.description}
+                      {events.find(e => e.id === selectedEvent)?.description}
                     </p>
                     <span className="text-chainsaw-orange/80">
-                      {timelineEvents.find(e => e.id === selectedEvent)?.date}
+                      {events.find(e => e.id === selectedEvent)?.date}
                     </span>
                   </div>
                 </div>

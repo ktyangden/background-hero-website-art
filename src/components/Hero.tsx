@@ -45,7 +45,7 @@ const Hero = () => {
           transition={{ duration: 0.3 }}
         >
           <motion.img 
-            src="\lovable-uploads\denji2.png" 
+            src="/images/denji2.png" 
             alt="Chainsaw Man" 
             className="h-full object-cover scale-125"
             initial={{ y: 0 }}

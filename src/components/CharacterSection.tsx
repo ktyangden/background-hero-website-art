@@ -9,50 +9,45 @@ const CharacterSection = () => {
   const characters = [
     {
       id: 1,
-      name: "DENJI",
-      image: "/lovable-uploads/denji.jpg",
-      description:
-        "Chainsaw-wielding hybrid devil hunter. Brash, hungry, and deadly.",
+      name: "Denji",
+      image: "/images/denji.jpg",
+      description: "The protagonist who becomes Chainsaw Man after merging with Pochita.",
     },
     {
       id: 2,
-      name: "POWER",
-      image: "/lovable-uploads/POWER.png",
-      description:
-        "Blood Devil. Chaotic, loud, and fiercely loyal in her own twisted way.",
+      name: "Power",
+      image: "/images/power.png",
+      description: "The Blood Devil who forms a contract with Denji.",
     },
     {
       id: 3,
-      name: "AKI",
-      image: "/lovable-uploads/AKI.jpg",
-      description:
-        "Calm and driven Public Safety Devil Hunter, with a contract with the Fox Devil.",
+      name: "Aki",
+      image: "/images/aki.jpg",
+      description: "A Public Safety Devil Hunter and Denji's mentor.",
     },
     {
       id: 4,
-      name: "HIMENO",
-      image: "/lovable-uploads/HIMENO.png",
-      description: "Ghost Devil user. Mysterious, emotional, and deadly.",
+      name: "Himeno",
+      image: "/images/himeno.png",
+      description: "Aki's former partner and a skilled Devil Hunter.",
     },
     {
       id: 5,
-      name: "REZE",
-      image: "/lovable-uploads/REZE.png",
-      description: "Bomb Devil hybrid. Sweet exterior hides explosive power.",
+      name: "Reze",
+      image: "/images/reze.png",
+      description: "A mysterious girl with a connection to Denji.",
     },
     {
       id: 6,
-      name: "MAKIMA",
-      image: "/lovable-uploads/makima.jpg",
-      description:
-        "Control Devil. Calm, composed, and terrifyingly manipulative.",
+      name: "Makima",
+      image: "/images/makima.jpg",
+      description: "The mysterious and powerful Control Devil.",
     },
     {
       id: 7,
-      name: "YORU",
-      image: "/lovable-uploads/YORU.png",
-      description:
-        "War Devil. Cold and calculating with a mission to dominate.",
+      name: "Yoru",
+      image: "/images/yoru.png",
+      description: "The War Devil who takes over Asa's body.",
     },
   ];
 
