@@ -13,7 +13,7 @@ const Hero = () => {
     const glitchInterval = setInterval(() => {
       setIsGlitching(true);
       setTimeout(() => setIsGlitching(false), 200); // Glitch lasts 200ms
-    }, 1000); // Random glitch every 1 second (adjust frequency here)
+    }, 2000); // Random glitch every 3 seconds (adjust frequency here)
 
     return () => clearInterval(glitchInterval); // Cleanup on component unmount
   }, []);
@@ -88,8 +88,8 @@ const Hero = () => {
       </div>
 
       {/* Japanese vertical text with glitch effect */}
-      <div className="absolute right-2 sm:right-4 md:right-12 top-1/2 transform -translate-y-1/2 z-20">
-        <h2 className={`font-synthek text-white text-4xl sm:text-5xl md:text-8xl writing-vertical tracking-wider ${isGlitching ? 'glitch' : ''} whitespace-nowrap`}>
+      <div className="absolute right-2 sm:right-4 md:right-12 top-1/2 transform -translate-y-1/2 z-20 [text-shadow:_0_0_20px_rgba(0,0,0,0.7)]">
+        <h2 className={`font-synthek text-white text-5xl sm:text-6xl md:text-9xl writing-vertical tracking-wider ${isGlitching ? 'glitch' : ''} whitespace-nowrap`}>
           チェンソーマン
         </h2>
       </div>
@@ -102,7 +102,7 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <p className="text-4xl text-white font-orbitron mb-6 tracking-wide">
+          <p className="text-4xl text-white font-orbitron mb-6 tracking-wide [text-shadow:_0_0_30px_rgba(0,0,0,0.8)]">
             "All Devils Are Born With A Name"
           </p>
 
@@ -111,9 +111,9 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="bg-black hover:bg-black/80 text-white px-8 py-6 rounded-md font-orbitron">
+            <Button className="bg-black hover:bg-black/80 text-white px-10 py-7 rounded-md font-orbitron text-lg [box-shadow:_0_0_15px_rgba(0,0,0,0.5)]">
               WATCH NOW
-              <Play className="ml-2 h-5 w-5" />
+              <Play className="ml-2 h-6 w-6" />
             </Button>
           </a>
         </motion.div>

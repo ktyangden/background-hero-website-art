@@ -11,8 +11,9 @@ const Footer = () => {
           <div>
             <h3 className="font-bebas text-2xl mb-4">CHAINSAW</h3>
             <p className="text-sm text-white/70 mb-6">
-              Experience the dark, brutal world of Chainsaw Man in this action-packed game
-              based on the hit manga and anime series.
+              Explore the dark, brutal world of Chainsaw Man<br></br>
+              through this fan-made tribute to the hit manga<br></br>
+              and anime series.
             </p>
             <div className="flex gap-4">
               <SocialIcon icon={<Twitter size={18} />} />
@@ -27,8 +28,8 @@ const Footer = () => {
             <ul className="space-y-2">
               <FooterLink href="#about">About</FooterLink>
               <FooterLink href="#characters">Characters</FooterLink>
-              <FooterLink href="#modes">Game Modes</FooterLink>
-              <FooterLink href="#faq">FAQ</FooterLink>
+              <FooterLink href="#videos">Videos</FooterLink>
+              <FooterLink href="#story">Story Timeline</FooterLink>
               <FooterLink href="#support">Support</FooterLink>
             </ul>
           </div>
@@ -55,7 +56,7 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-white/60">
-            © 2025 Chainsaw Man Game. All rights reserved.
+            © 2025 Chainsaw Man Fanpage. All rights reserved.
           </p>
           <div className="flex gap-4 mt-4 md:mt-0">
             <span className="text-sm text-white/60">Privacy Policy</span>

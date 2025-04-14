@@ -17,7 +17,7 @@ const PlotSection = () => {
     },
     {
       id: 2,
-      title: "Power's Introduction",
+      title: "Power Arrives",
       description: "The Blood Devil joins Denji's life.",
       date: "Chapter 5",
       image: "/images/POWER.png",
@@ -113,31 +113,42 @@ const PlotSection = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="flex flex-col items-center mx-4 sm:mx-8 w-[250px] sm:w-[300px]"
                 >
-                  {/* Event content */}
-                  <div className="w-full mb-4">
-                    <div className="bg-gray-900/50 p-4 sm:p-6 rounded-lg">
-                      <h3 className="text-xl sm:text-2xl text-chainsaw-orange font-orbitron mb-2">
-                        {event.title}
-                      </h3>
-                      <p className="text-white/80 text-sm sm:text-base mb-4">{event.description}</p>
-                      <span className="text-chainsaw-orange/80 text-sm sm:text-base">{event.date}</span>
-                    </div>
-                  </div>
-
-                  {/* Event image */}
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setSelectedEvent(event.id)}
-                    className="w-full aspect-video overflow-hidden rounded-lg relative group"
+                  <motion.div
+                    animate={{ 
+                      y: [0, -10, 0],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
                   >
-                    <img
-                      src={event.image}
-                      alt={event.title}
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
-                  </motion.button>
+                    {/* Event content */}
+                    <div className="w-full mb-4">
+                      <div className="bg-gray-900/50 p-4 sm:p-6 rounded-lg">
+                        <h3 className="text-xl sm:text-2xl text-chainsaw-orange font-orbitron mb-2">
+                          {event.title}
+                        </h3>
+                        <p className="text-white/80 text-sm sm:text-base mb-4">{event.description}</p>
+                        <span className="text-chainsaw-orange/80 text-sm sm:text-base">{event.date}</span>
+                      </div>
+                    </div>
+
+                    {/* Event image */}
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setSelectedEvent(event.id)}
+                      className="w-full aspect-video overflow-hidden rounded-lg relative group"
+                    >
+                      <img
+                        src={event.image}
+                        alt={event.title}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+                    </motion.button>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>

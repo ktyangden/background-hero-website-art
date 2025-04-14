@@ -65,7 +65,7 @@ const CharacterSection = () => {
   return (
     <section
       id="characters"
-      className="py-32 bg-black relative overflow-hidden"
+      className="py-24 bg-black relative overflow-hidden"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
@@ -77,7 +77,7 @@ const CharacterSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col items-center mb-16">
+        <div className="flex flex-col items-center mb-12">
           <h2 className="text-6xl md:text-7xl text-white mb-6 tracking-wider font-orbitron font-bold">
             CHARACTERS
           </h2>
@@ -97,11 +97,11 @@ const CharacterSection = () => {
               <div className="absolute top-0 left-0 w-0 h-0 border-t-[60px] border-t-chainsaw-orange border-r-[60px] border-r-transparent"></div>
               <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[60px] border-b-chainsaw-orange border-l-[60px] border-l-transparent"></div>
               
-              <h3 className="text-7xl md:text-8xl text-chainsaw-orange drop-shadow-md mb-8 font-orbitron font-bold not-italic">
+              <h3 className="text-7xl md:text-8xl text-chainsaw-orange drop-shadow-md mb-6 font-orbitron font-bold not-italic">
                 {characters[currentCharacter].name}
               </h3>
 
-              <p className="text-white/90 text-xl md:text-2xl leading-relaxed mb-12">
+              <p className="text-white/90 text-xl md:text-2xl leading-relaxed mb-8">
                 {characters[currentCharacter].description}
               </p>
 
@@ -138,13 +138,13 @@ const CharacterSection = () => {
               <img
                 src={characters[currentCharacter].image}
                 alt={characters[currentCharacter].name}
-                className="w-full h-[600px] object-cover"
+                className="w-full h-[550px] object-cover"
               />
             </motion.div>
           </div>
 
           {/* Thumbnail Navigation */}
-          <div className="mt-16">
+          <div className="mt-12">
             <div className="flex justify-center gap-4 overflow-x-auto scrollbar-hide px-4 thumbnail-container">
               {characters.map((char, index) => (
                 <motion.button
