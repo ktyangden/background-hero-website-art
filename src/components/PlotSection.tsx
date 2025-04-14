@@ -9,24 +9,28 @@ const PlotSection = () => {
 
   const events = [
     {
+      id: 1,
       title: "Denji's Contract",
       description: "Denji merges with Pochita to become Chainsaw Man.",
       date: "Chapter 1",
       image: "/images/denji.jpg",
     },
     {
+      id: 2,
       title: "Power's Introduction",
       description: "The Blood Devil joins Denji's life.",
       date: "Chapter 5",
       image: "/images/POWER.png",
     },
     {
+      id: 3,
       title: "Aki's Training",
       description: "Denji begins training under Aki.",
       date: "Chapter 8",
       image: "/images/AKI.jpg",
     },
     {
+      id: 4,
       title: "Makima's Plan",
       description: "The Control Devil's true intentions are revealed.",
       date: "Chapter 52",

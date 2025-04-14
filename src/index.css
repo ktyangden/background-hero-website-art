@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url('https://fonts.cdnfonts.com/css/reckoner');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,6 +9,24 @@
   src: url('/fonts/SynthekKana-LDR.woff2') format('woff2'),
     url('/fonts/SynthekKana-LDR.woff') format('woff');
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Reckoner';
+  src: url('https://fonts.cdnfonts.com/s/14843/Reckoner.woff2') format('woff2'),
+    url('https://fonts.cdnfonts.com/s/14843/Reckoner.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Reckoner_Bold';
+  src: url('https://fonts.cdnfonts.com/s/14843/Reckoner_Bold.woff2') format('woff2'),
+    url('https://fonts.cdnfonts.com/s/14843/Reckoner_Bold.woff') format('woff');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }

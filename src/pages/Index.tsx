@@ -1,10 +1,10 @@
-
 import React from 'react';
 import Hero from '../components/Hero';
 import Videos from '@/components/Videos';
 import CharacterSection from '../components/CharacterSection';
 import Footer from '../components/Footer';
 import PlotSection from '../components/PlotSection';
+import InfiniteScrollText from '../components/InfiniteScrollText';
 
 const Index = () => {
   return (
@@ -13,6 +13,7 @@ const Index = () => {
       <CharacterSection />
       <Videos />
       <PlotSection />
+      <InfiniteScrollText />
       <Footer />
     </div>
   );

@@ -4,6 +4,7 @@ import { Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 import FireParticles from './FireParticles';
 import ScratchEffect from './ScratchEffect';
+import InfiniteScrollText from './InfiniteScrollText';
 
 const Hero = () => {
   const [isGlitching, setIsGlitching] = useState(false);
@@ -37,8 +38,11 @@ const Hero = () => {
       {/* Scratch and dirt effect */}
       <ScratchEffect />
 
+      {/* Infinite scrolling text background */}
+      <InfiniteScrollText />
+
       {/* Main chainsaw character image - enlarged to remove borders */}
-      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 h-full">
+      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 h-full z-10">
         <motion.div 
           className="h-full relative"
           whileHover={{ rotateY: 5 }}
@@ -84,7 +88,7 @@ const Hero = () => {
       </div>
 
       {/* Japanese vertical text with glitch effect */}
-      <div className="absolute right-2 sm:right-4 md:right-12 top-1/2 transform -translate-y-1/2">
+      <div className="absolute right-2 sm:right-4 md:right-12 top-1/2 transform -translate-y-1/2 z-20">
         <h2 className={`font-synthek text-white text-4xl sm:text-5xl md:text-8xl writing-vertical tracking-wider ${isGlitching ? 'glitch' : ''} whitespace-nowrap`}>
           チェンソーマン
         </h2>

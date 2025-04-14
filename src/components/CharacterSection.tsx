@@ -41,7 +41,7 @@ const CharacterSection = () => {
     {
       id: 6,
       name: "Makima",
-      image: "/images/MAKIMA.png",
+      image: "/images/makima.jpg",
       description: "The mysterious and powerful Control Devil.",
     },
     {
