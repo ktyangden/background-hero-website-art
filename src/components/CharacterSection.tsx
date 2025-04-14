@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
+import { Analytics } from "@vercel/analytics/react";
 
 const CharacterSection = () => {
   const [currentCharacter, setCurrentCharacter] = useState(0);
