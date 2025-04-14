@@ -63,25 +63,12 @@ const Videos = () => {
           >
             <iframe
               className="absolute inset-0 w-full h-full object-cover z-0"
-              src="https://www.youtube.com/embed/d1n552v1ng0?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=d1n552v1ng0"
+              src="https://www.youtube.com/embed/d1n552v1ng0?autoplay=1&loop=1&controls=1&showinfo=0&rel=0&playlist=d1n552v1ng0"
               title="Chainsaw Man Teaser"
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
             ></iframe>
-            <div className="absolute inset-0 bg-black/50 z-10"></div>
-            <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
-              <h3 className="font-orbitron text-4xl md:text-5xl text-white mb-4">
-                TEASER
-              </h3>
-              <p className="text-white/90 text-lg md:text-xl font-bold max-w-2xl mb-6">
-                Get your first glimpse of the Chainsaw Man anime adaptation. Witness the raw power and intensity that awaits.
-              </p>
-              <Button className="bg-chainsaw-orange hover:bg-chainsaw-orange/90 text-white font-bebas px-10 py-6 rounded-md text-lg">
-                WATCH TEASER
-                <Play className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
           </TabsContent>
 
           {/* TRAILER */}
@@ -91,25 +78,12 @@ const Videos = () => {
           >
             <iframe
               className="absolute inset-0 w-full h-full object-cover z-0"
-              src="https://www.youtube.com/embed/dFlDRhvM4L0?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=dFlDRhvM4L0"
+              src="https://www.youtube.com/embed/dFlDRhvM4L0?autoplay=1&loop=1&controls=1&showinfo=0&rel=0&playlist=dFlDRhvM4L0"
               title="Chainsaw Man Trailer"
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
             ></iframe>
-            <div className="absolute inset-0 bg-black/50 z-10"></div>
-            <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
-              <h3 className="font-orbitron text-4xl md:text-5xl text-white mb-4">
-                OFFICIAL TRAILER
-              </h3>
-              <p className="text-white/90 text-lg md:text-xl font-bold max-w-2xl mb-6">
-                Experience the full trailer showcasing the stunning animation, intense action, and emotional depth of Chainsaw Man.
-              </p>
-              <Button className="bg-chainsaw-orange hover:bg-chainsaw-orange/90 text-white font-bebas px-10 py-6 rounded-md text-lg">
-                WATCH TRAILER
-                <Play className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
           </TabsContent>
 
           {/* MUSIC VIDEOS */}
@@ -119,25 +93,12 @@ const Videos = () => {
           >
             <iframe
               className="absolute inset-0 w-full h-full object-cover z-0"
-              src="https://www.youtube.com/embed/d1n552v1ng0?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=d1n552v1ng0"
+              src="https://www.youtube.com/embed/d1n552v1ng0?autoplay=1&loop=1&controls=1&showinfo=0&rel=0&playlist=d1n552v1ng0"
               title="Chainsaw Man Music Videos"
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
             ></iframe>
-            <div className="absolute inset-0 bg-black/50 z-10"></div>
-            <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
-              <h3 className="font-orbitron text-4xl md:text-5xl text-white mb-4">
-                MUSIC VIDEOS
-              </h3>
-              <p className="text-white/90 text-lg md:text-xl font-bold max-w-2xl mb-6">
-                Immerse yourself in the official music videos featuring the opening and ending themes of Chainsaw Man.
-              </p>
-              <Button className="bg-chainsaw-orange hover:bg-chainsaw-orange/90 text-white font-bebas px-10 py-6 rounded-md text-lg">
-                WATCH MUSIC VIDEOS
-                <Play className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
           </TabsContent>
         </Tabs>
       </div>
