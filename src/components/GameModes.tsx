@@ -6,9 +6,23 @@ const GameModes = () => {
   return (
     <section
       id="modes"
-      className="py-20 bg-black relative noise-bg"
+      className="py-20 bg-black relative noise-bg overflow-hidden"
     >
-      <div className="container mx-auto px-4">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 z-0">
+        {/* Large diagonal trapezoid */}
+        <div className="absolute -left-20 top-0 w-[40%] h-full bg-gray-900 transform -skew-x-12"></div>
+        
+        {/* Triangular elements */}
+        <div className="absolute right-0 top-0 w-0 h-0 border-l-[200px] border-l-transparent border-b-[400px] border-b-gray-800"></div>
+        <div className="absolute left-1/2 bottom-0 w-0 h-0 border-r-[150px] border-r-transparent border-t-[300px] border-t-gray-900"></div>
+        
+        {/* Small decorative triangles */}
+        <div className="absolute left-1/4 top-1/4 w-0 h-0 border-l-[50px] border-l-transparent border-b-[100px] border-b-gray-800"></div>
+        <div className="absolute right-1/3 bottom-1/3 w-0 h-0 border-r-[30px] border-r-transparent border-t-[60px] border-t-gray-900"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="flex flex-col items-center mb-12">
           <h2 className="text-2xl text-white font-orbitron mb-6 tracking-wide">
