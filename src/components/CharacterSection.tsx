@@ -16,37 +16,37 @@ const CharacterSection = () => {
     {
       id: 2,
       name: "Power",
-      image: "/images/power.png",
+      image: "/images/POWER.png",
       description: "The Blood Devil who forms a contract with Denji.",
     },
     {
       id: 3,
       name: "Aki",
-      image: "/images/aki.jpg",
+      image: "/images/AKI.jpg",
       description: "A Public Safety Devil Hunter and Denji's mentor.",
     },
     {
       id: 4,
       name: "Himeno",
-      image: "/images/himeno.png",
+      image: "/images/HIMENO.png",
       description: "Aki's former partner and a skilled Devil Hunter.",
     },
     {
       id: 5,
       name: "Reze",
-      image: "/images/reze.png",
+      image: "/images/REZE.png",
       description: "A mysterious girl with a connection to Denji.",
     },
     {
       id: 6,
       name: "Makima",
-      image: "/images/makima.jpg",
+      image: "/images/MAKIMA.png",
       description: "The mysterious and powerful Control Devil.",
     },
     {
       id: 7,
       name: "Yoru",
-      image: "/images/yoru.png",
+      image: "/images/YORU.png",
       description: "The War Devil who takes over Asa's body.",
     },
   ];
