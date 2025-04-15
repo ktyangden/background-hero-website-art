@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { Analytics } from "@vercel/analytics/react";
+import SparkEffect from "./SparkEffect";
 
 const CharacterSection = () => {
   const [currentCharacter, setCurrentCharacter] = useState(0);
@@ -69,6 +70,9 @@ const CharacterSection = () => {
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
+      
+      {/* Spark Effect */}
+      <SparkEffect />
       
       {/* Decorative elements */}
       <div className="absolute inset-0">
