@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from './ui/button';
-import { Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 import FireParticles from './FireParticles';
 import ScratchEffect from './ScratchEffect';
@@ -92,31 +90,6 @@ const Hero = () => {
         <h2 className={`font-synthek text-white text-5xl sm:text-6xl md:text-9xl writing-vertical tracking-wider ${isGlitching ? 'glitch' : ''} whitespace-nowrap`}>
           チェンソーマン
         </h2>
-      </div>
-
-      {/* Bottom-centered quote + button */}
-      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-end items-center pb-24 text-center">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl"
-        >
-          <p className="text-4xl text-white font-orbitron mb-6 tracking-wide [text-shadow:_0_0_30px_rgba(0,0,0,0.8)]">
-            "All Devils Are Born With A Name"
-          </p>
-
-          <a
-            href="https://youtu.be/xvFZjo5PgG0"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button className="bg-black hover:bg-black/80 text-white px-10 py-7 rounded-md font-orbitron text-lg [box-shadow:_0_0_15px_rgba(0,0,0,0.5)]">
-              WATCH NOW
-              <Play className="ml-2 h-6 w-6" />
-            </Button>
-          </a>
-        </motion.div>
       </div>
     </div>
   );
