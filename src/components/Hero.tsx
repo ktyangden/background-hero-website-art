@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import FireParticles from './FireParticles';
 import ScratchEffect from './ScratchEffect';
 import InfiniteScrollText from './InfiniteScrollText';
+import { Button } from './ui/button';
 
 const Hero = () => {
   const [isGlitching, setIsGlitching] = useState(false);
@@ -83,13 +84,31 @@ const Hero = () => {
             ))}
           </div>
         </motion.div>
+        
       </div>
-
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center z-30">
+        <p className="text-white/90 text-2xl md:text-4xl italic mb-4">
+          "All Devils Are Born With A Name."
+        </p>
+        <Button className="bg-black hover:bg-black/90 text-white px-8 py-6 text-lg">
+          WATCH NOW
+        </Button>
+      </div>
+      
       {/* Japanese vertical text with glitch effect */}
       <div className="absolute right-2 sm:right-4 md:right-12 top-1/2 transform -translate-y-1/2 z-20 [text-shadow:_0_0_20px_rgba(0,0,0,0.7)]">
         <h2 className={`font-synthek text-white text-5xl sm:text-6xl md:text-9xl writing-vertical tracking-wider ${isGlitching ? 'glitch' : ''} whitespace-nowrap`}>
           チェンソーマン
         </h2>
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center z-30">
+        <p className="text-white/90 text-2xl md:text-4xl italic mb-4">
+          "All Devils Are Born With A Name."
+        </p>
+        <Button className="bg-black hover:bg-black/90 text-white px-8 py-6 text-lg">
+          WATCH NOW
+        </Button>
       </div>
     </div>
   );
