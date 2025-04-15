@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
+import SparkEffect from "./SparkEffect";
 
 const PlotSection = () => {
   const [selectedEvent, setSelectedEvent] = useState<number | null>(null);
@@ -65,6 +66,11 @@ const PlotSection = () => {
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-chainsaw-orange to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-chainsaw-orange to-transparent"></div>
+      </div>
+
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black/90" />
+        <SparkEffect />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
