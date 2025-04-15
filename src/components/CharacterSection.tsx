@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
@@ -7,6 +7,7 @@ import SparkEffect from "./SparkEffect";
 
 const CharacterSection = () => {
   const [currentCharacter, setCurrentCharacter] = useState(0);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const characters = [
     {
@@ -14,54 +15,92 @@ const CharacterSection = () => {
       name: "Denji",
       image: "/images/denji.jpg",
       description: "The protagonist who becomes Chainsaw Man after merging with Pochita.",
+      quote: "I want to live a normal life, eat good food, and sleep in a warm bed.",
+      audio: "/audio/denji.mp3"
     },
     {
       id: 2,
       name: "Power",
       image: "/images/POWER.png",
       description: "The Blood Devil who forms a contract with Denji.",
+      quote: "I am the great Power! The Blood Devil!",
+      audio: "/audio/power.mp3"
     },
     {
       id: 3,
       name: "Aki",
       image: "/images/AKI.jpg",
       description: "A Public Safety Devil Hunter and Denji's mentor.",
+      quote: "I'll kill the Gun Devil, no matter what it takes.",
+      audio: "/audio/aki.mp3"
     },
     {
       id: 4,
       name: "Himeno",
       image: "/images/HIMENO.png",
       description: "Aki's former partner and a skilled Devil Hunter.",
+      quote: "I'll protect you, Aki.",
+      audio: "/audio/himeno.mp3"
     },
     {
       id: 5,
       name: "Reze",
       image: "/images/REZE.png",
       description: "A mysterious girl with a connection to Denji.",
+      quote: "I want to be with you, Denji.",
+      audio: "/audio/reze.mp3"
     },
     {
       id: 6,
       name: "Makima",
       image: "/images/makima.jpg",
       description: "The mysterious and powerful Control Devil.",
+      quote: "I want to create a world where everyone is equal.",
+      audio: "/audio/makima.mp3"
     },
     {
       id: 7,
       name: "Yoru",
       image: "/images/YORU.png",
       description: "The War Devil who takes over Asa's body.",
+      quote: "I am the War Devil. I will make you suffer.",
+      audio: "/audio/yoru.mp3"
     },
   ];
 
+  const playCharacterSound = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+    
+    const audio = new Audio(characters[currentCharacter].audio);
+    audioRef.current = audio;
+    audio.play().catch(error => {
+      console.error("Error playing audio:", error);
+    });
+  };
+
   const nextCharacter = () => {
-    setCurrentCharacter((prev) => (prev + 1) % characters.length);
+    setCurrentCharacter((prev) => {
+      const next = (prev + 1) % characters.length;
+      return next;
+    });
+    playCharacterSound();
   };
 
   const prevCharacter = () => {
-    setCurrentCharacter(
-      (prev) => (prev - 1 + characters.length) % characters.length
-    );
+    setCurrentCharacter((prev) => {
+      const next = (prev - 1 + characters.length) % characters.length;
+      return next;
+    });
+    playCharacterSound();
   };
+
+  // Play sound when component mounts
+  React.useEffect(() => {
+    playCharacterSound();
+  }, []);
 
   return (
     <section
@@ -89,22 +128,47 @@ const CharacterSection = () => {
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Character info */}
+          <div className="grid grid-cols-3 gap-8">
+            {/* Character name */}
             <motion.div 
               key={characters[currentCharacter].id}
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col justify-center text-white relative"
+              className="flex flex-col justify-center text-white"
             >
-              <div className="absolute top-0 left-0 w-0 h-0 border-t-[60px] border-t-chainsaw-orange border-r-[60px] border-r-transparent"></div>
-              <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[60px] border-b-chainsaw-orange border-l-[60px] border-l-transparent"></div>
-              
               <h3 className="text-7xl md:text-8xl text-chainsaw-orange drop-shadow-md mb-6 font-orbitron font-bold not-italic">
                 {characters[currentCharacter].name}
               </h3>
+              <p className="text-white/80 text-lg md:text-xl italic mb-4">
+                "{characters[currentCharacter].quote || 'No quote available'}"
+              </p>
+            </motion.div>
 
+            {/* Character image */}
+            <motion.div 
+              key={characters[currentCharacter].id + "-image"}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-gray-900/30 to-transparent"></div>
+              <img
+                src={characters[currentCharacter].image}
+                alt={characters[currentCharacter].name}
+                className="w-full h-[550px] object-cover"
+              />
+            </motion.div>
+
+            {/* Character description */}
+            <motion.div 
+              key={characters[currentCharacter].id + "-desc"}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col justify-center text-white"
+            >
               <p className="text-white/90 text-xl md:text-2xl leading-relaxed mb-8">
                 {characters[currentCharacter].description}
               </p>
@@ -128,22 +192,6 @@ const CharacterSection = () => {
                   <ChevronRight size={24} />
                 </Button>
               </div>
-            </motion.div>
-
-            {/* Character image */}
-            <motion.div 
-              key={characters[currentCharacter].id + "-image"}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-gray-900/30 to-transparent"></div>
-              <img
-                src={characters[currentCharacter].image}
-                alt={characters[currentCharacter].name}
-                className="w-full h-[550px] object-cover"
-              />
             </motion.div>
           </div>
 

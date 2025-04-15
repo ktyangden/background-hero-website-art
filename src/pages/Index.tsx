@@ -10,8 +10,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-black">
       <Hero />
-      <CharacterSection />
       <Videos />
+      <CharacterSection />
       <PlotSection />
       <InfiniteScrollText />
       <Footer />
