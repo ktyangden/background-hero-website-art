@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
@@ -10,6 +10,7 @@ const CharacterSection = () => {
   const [currentCharacter, setCurrentCharacter] = useState(0);
   const [characterType, setCharacterType] = useState("all");
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const thumbnailContainerRef = useRef<HTMLDivElement>(null);
 
   const characters = [
     {
@@ -74,12 +75,32 @@ const CharacterSection = () => {
       quote: "I am the War Devil. I will make you suffer.",
       audio: "/audio/yoru.mp3",
       type: "devil"
-    },
+    }
   ];
 
   const filteredCharacters = characterType === "all" 
     ? characters 
     : characters.filter(char => char.type === characterType);
+
+  // Function to scroll thumbnail to selected character
+  const scrollToCharacter = (index: number) => {
+    if (thumbnailContainerRef.current) {
+      const container = thumbnailContainerRef.current;
+      const thumbnails = container.querySelectorAll('button');
+      if (thumbnails[index]) {
+        const thumbnail = thumbnails[index] as HTMLElement;
+        const containerWidth = container.clientWidth;
+        const thumbnailWidth = thumbnail.offsetWidth;
+        const gap = 16; // 4 * 4px gap
+        const scrollPosition = thumbnail.offsetLeft - (containerWidth / 2) + (thumbnailWidth / 2) + gap;
+        
+        container.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
 
   const playCharacterSound = () => {
     if (audioRef.current) {
@@ -97,6 +118,7 @@ const CharacterSection = () => {
   const nextCharacter = () => {
     setCurrentCharacter((prev) => {
       const next = (prev + 1) % filteredCharacters.length;
+      scrollToCharacter(next);
       return next;
     });
     playCharacterSound();
@@ -105,6 +127,7 @@ const CharacterSection = () => {
   const prevCharacter = () => {
     setCurrentCharacter((prev) => {
       const next = (prev - 1 + filteredCharacters.length) % filteredCharacters.length;
+      scrollToCharacter(next);
       return next;
     });
     playCharacterSound();
@@ -115,6 +138,22 @@ const CharacterSection = () => {
     setCurrentCharacter(0);
     playCharacterSound();
   }, [characterType]);
+
+  // Keyboard navigation handler
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        prevCharacter();
+      } else if (e.key === 'ArrowRight') {
+        nextCharacter();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [currentCharacter, characterType]); // Add dependencies to ensure proper updates
 
   return (
     <section
@@ -243,30 +282,72 @@ const CharacterSection = () => {
 
           {/* Thumbnail Navigation */}
           <div className="mt-12">
-            <div className="flex justify-center gap-4 overflow-x-auto scrollbar-hide px-4 thumbnail-container">
-              {filteredCharacters.map((char, index) => (
-                <motion.button
-                  key={char.id}
-                  onClick={() => {
-                    setCurrentCharacter(index);
-                    playCharacterSound();
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden border-2 transition-all duration-300 relative transform-gpu bg-black
-                  ${
-                    index === currentCharacter
-                      ? "border-chainsaw-orange shadow-[0_0_20px_5px_rgba(255,115,0,0.5)]"
-                      : "border-gray-700 hover:border-chainsaw-orange/50 hover:shadow-md"
-                  }`}
-                >
-                  <img
-                    src={char.image}
-                    alt={char.name}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.button>
-              ))}
+            <div className="relative w-full">
+              {/* Left Arrow */}
+              <button
+                onClick={() => {
+                  const container = document.querySelector('.thumbnail-scroll-container');
+                  if (container) {
+                    const scrollAmount = container.clientWidth;
+                    container.scrollBy({
+                      left: -scrollAmount,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full"
+              >
+                <ChevronLeft size={24} />
+              </button>
+
+              {/* Right Arrow */}
+              <button
+                onClick={() => {
+                  const container = document.querySelector('.thumbnail-scroll-container');
+                  if (container) {
+                    const scrollAmount = container.clientWidth;
+                    container.scrollBy({
+                      left: scrollAmount,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full"
+              >
+                <ChevronRight size={24} />
+              </button>
+
+              <div 
+                ref={thumbnailContainerRef}
+                className="flex justify-center gap-4 overflow-x-auto scrollbar-hide px-4 thumbnail-scroll-container snap-x snap-mandatory"
+              >
+                <div className="flex gap-4 snap-center">
+                  {filteredCharacters.map((char, index) => (
+                    <motion.button
+                      key={char.id}
+                      onClick={() => {
+                        setCurrentCharacter(index);
+                        scrollToCharacter(index);
+                        playCharacterSound();
+                      }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden border-2 transition-all duration-300 relative transform-gpu bg-black snap-center
+                      ${
+                        index === currentCharacter
+                          ? "border-chainsaw-orange shadow-[0_0_20px_5px_rgba(255,115,0,0.5)]"
+                          : "border-gray-700 hover:border-chainsaw-orange/50 hover:shadow-md"
+                      }`}
+                    >
+                      <img
+                        src={char.image}
+                        alt={char.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
