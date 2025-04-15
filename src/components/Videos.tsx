@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "./ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Play } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Videos = () => {
   return (
@@ -103,9 +104,13 @@ const Videos = () => {
         </Tabs>
       </div>
 
-      {/* PNG Image in the right corner */}
+      {/* Pochita Mascot */}
       <div className="absolute top-10 right-0 z-20">
-        <img src="/images/pochita.png" alt="Video Section Icon" className="w-24 h-24 md:w-32 md:h-32 object-contain" />
+        <img 
+          src="/images/pochita.png" 
+          alt="Pochita Mascot" 
+          className="w-40 h-40 md:w-48 md:h-48 object-contain drop-shadow-[0_0_10px_rgba(255,69,0,0.5)]"
+        />
       </div>
     </section>
   );
