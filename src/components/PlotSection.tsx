@@ -46,7 +46,7 @@ const PlotSection = () => {
     },
     {
       id: 6,
-      title: "The End",
+      title: "International Assassins Arc",
       description: "The Control Devil's true intentions are revealed.",
       date: "Chapter 52",
       image: "/images/makima.jpg",
