@@ -28,7 +28,7 @@ const PlotSection = () => {
       title: "Eternity Devil Arc",
       description: "Denji begins training under Aki.",
       date: "Chapter 8",
-      image: "/images/AKI.jpg",
+      image: "/images/eternity_devil_arc.png",
     },
     {
       id: 4,
