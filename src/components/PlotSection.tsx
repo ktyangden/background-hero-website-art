@@ -18,7 +18,7 @@ const PlotSection = () => {
     },
     {
       id: 2,
-      title: "Power Arrives",
+      title: "Bat Devil Arc",
       description: "The Blood Devil joins Denji's life.",
       date: "Chapter 5",
       image: "/images/POWER.png",
