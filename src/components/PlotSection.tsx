@@ -37,6 +37,20 @@ const PlotSection = () => {
       date: "Chapter 52",
       image: "/images/makima.jpg",
     },
+    {
+      id: 5,
+      title: "Makima's Plan",
+      description: "The Control Devil's true intentions are revealed.",
+      date: "Chapter 52",
+      image: "/images/makima.jpg",
+    },
+    {
+      id: 6,
+      title: "Makima's Plan",
+      description: "The Control Devil's true intentions are revealed.",
+      date: "Chapter 52",
+      image: "/images/makima.jpg",
+    },
   ];
 
   const scrollLeft = () => {
